@@ -1,0 +1,22 @@
+h1. About
+
+This is plugin for easy creating unique slugs from other properties.
+
+
+h1. Initialization
+
+You need to have DataMapper model with property slug. To set slug just use before create hook with set_slug model method. This method takes the slug as parameter. Use String#to_slug to get this parameter if you need.
+
+<pre>
+class Post
+  include DataMapper::Resource
+  is :sluggable
+  property :title, String
+  property :slug,  String, :key => true
+  before :create do
+    set_slug(self.title.to_slug)
+  end
+end
+</pre>
+
+So what exactly set_slug does? It look for given slug, if not found than save it, let say as "foo-bar". If found, than increase number of iteraction and tries it again with "foo-bar-2".
