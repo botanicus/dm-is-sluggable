@@ -1,3 +1,5 @@
+# coding=utf-8
+
 class String
   # Important: it do not work with self.tr("á", "a") in Ruby 1.8
   def chars

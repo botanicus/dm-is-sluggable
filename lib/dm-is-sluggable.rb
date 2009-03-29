@@ -1,3 +1,5 @@
+# coding=utf-8
+
 # Needed to import datamapper and other gems
 require 'rubygems'
 require 'pathname'
