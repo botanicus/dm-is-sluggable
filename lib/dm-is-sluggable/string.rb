@@ -1,8 +1,8 @@
-# coding=utf-8
+# coding: utf-8
 
 class String
   # Important: it do not work with self.tr("á", "a") in Ruby 1.8
-  def chars
+  def unicode_chars
     { "á" => "a", "č" => "c", "ď" => "d",
       "ě" => "e", "é" => "e", "í" => "i",
       "ň" => "n", "ó" => "o", "ř" => "r",
@@ -17,7 +17,7 @@ class String
   
   def to_ascii
     string = self.dup
-    self.chars.each do |unicode, ascii|
+    self.unicode_chars.each do |unicode, ascii|
       string.gsub!(/#{unicode}/u, ascii)
     end
     return string
