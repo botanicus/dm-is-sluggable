@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 
 require File.join(File.dirname(__FILE__), '..', "spec_helper")
 require "dm-is-sluggable"

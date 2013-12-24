@@ -1,14 +1,9 @@
-# coding: utf-8
+# encoding: utf-8
 
-require 'pathname'
+require "dm-core"
 
-# Add all external dependencies for the plugin here
-gem 'dm-core'
-require 'dm-core'
-
-# Require plugin-files
-require Pathname(__FILE__).dirname.expand_path / 'dm-is-sluggable' / 'is' / 'sluggable.rb'
-require Pathname(__FILE__).dirname.expand_path / 'dm-is-sluggable' / 'string'
+require_relative "dm-is-sluggable/is/sluggable"
+require_relative "dm-is-sluggable/string"
 
 # Include the plugin in Resource
 module DataMapper

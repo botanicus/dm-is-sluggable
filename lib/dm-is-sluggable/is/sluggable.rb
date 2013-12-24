@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 
 module DataMapper
   module Is
@@ -27,12 +27,12 @@ module DataMapper
       end
 
       module InstanceMethods
-        def set_slug(slug, iteraction = 1)
+        def set_slug(slug, iteraction = 0)
           raise ArgumentError if slug.nil?
-          new_slug = "#{slug}#{"-#{iteraction}" unless iteraction == 1}"
+          new_slug = "#{slug}#{"-#{iteraction}" unless iteraction == 0}"
           self.attribute_set(:slug, new_slug)
-          if self.class.first(:slug => self.slug)
-            self.set_slug(slug, iteraction.to_i + 1)
+          if self.class.first(slug: self.slug)
+            self.set_slug(slug, iteraction.to_i + 2)
           end
         end
       end
